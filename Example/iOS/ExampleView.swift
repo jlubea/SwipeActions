@@ -104,7 +104,7 @@ struct ExampleView: View {
             LazyVStack(spacing: 0) {
                 ForEach(0...100, id: \.self) { cell in
                     Text(toggles[cell] ? "Cell \(cell)\npinned" : "Cell \(cell)")
-                    .frame(height: toggles[cell] ? 70 : 60)
+                        .frame(height: toggles[cell] ? 70 : 60)
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color(UIColor.systemBackground))
@@ -173,6 +173,7 @@ struct ExampleView: View {
                             hintOffset: 80
                         )
                 }
+                .gestureSensitive(.medium)
             }
         }
     }
