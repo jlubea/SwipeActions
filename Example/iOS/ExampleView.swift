@@ -173,7 +173,7 @@ struct ExampleView: View {
                             hintOffset: 80
                         )
                 }
-                .gestureSensitive(.medium)
+                .swipeSensitive(.medium)
             }
         }
     }
