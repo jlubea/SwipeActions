@@ -675,7 +675,7 @@ Actually if you forget to add identifier this don't worry, id will be added manu
 <details>
     <summary>Swipe sensitivity.</summary>
 
-To control swipe sensitivity (minimal distance for dragging) you should use modifier `swipeSensitive`.
+To control swipe sensitivity (minimum distance for dragging) you should use modifier `swipeSensitive`.
 
 ```swift
 ForEach(...) { cell in
