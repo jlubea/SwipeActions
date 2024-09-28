@@ -41,6 +41,7 @@ public struct SwipeAction<V1: View, V2: View>: ViewModifier {
     @Environment(\.layoutDirection) private var layoutDirection
     @Environment(\.isFullSwipeHapticsEnabled) private var isHapticsEnabled
     @Environment(\.fullSwipeHapticFeedback) private var hapticFeedback
+    @Environment(\.sensitivity) private var sensitivity
     
     @Binding private var state: SwipeState
     @State private var offset: CGFloat = 0
@@ -183,6 +184,10 @@ public struct SwipeAction<V1: View, V2: View>: ViewModifier {
         parentId?.uuid ?? manualId
     }
     
+    private var minimumDistance: CGFloat {
+        sensitivity ?? Sensitivity.low.value
+    }
+    
     private func gesturedContent(content: Content) -> some View {
         content
             .contentShape(Rectangle()) ///otherwise swipe won't work in vacant area
@@ -192,7 +197,7 @@ public struct SwipeAction<V1: View, V2: View>: ViewModifier {
                 contentHeight = $0.height
             }
             .gesture (
-                DragGesture(minimumDistance: 15, coordinateSpace: .global)
+                DragGesture(minimumDistance: minimumDistance, coordinateSpace: .global)
                     .updating($isDragging) { _, isDragging, _ in
                         isDragging = true
                     }
