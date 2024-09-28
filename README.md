@@ -672,6 +672,25 @@ Actually if you forget to add identifier this don't worry, id will be added manu
 
 </details>
 
+<details>
+    <summary>Swipe sensitivity.</summary>
+
+To control swipe sensitivity (minimal distance for dragging) you should use modifier `swipeSensitive`.
+
+```swift
+ForEach(...) { cell in
+     YourView(cell)
+         .addSwipeAction(...) {}
+         .swipeSensitive(.medium) // <= Look here. You can control it here 
+ }
+ .swipeSensitive(.medium) // <= Look here. Or here! 
+```
+
+If you forget to add sensitivity, don't worry the system will provide its own default `low` value. Actually it is the most comfortable behavior.
+
+</details>
+
+
 ### Supporting Right to left
 
 This Library supports right-to-left languages like Arabic and Hebrew. 
