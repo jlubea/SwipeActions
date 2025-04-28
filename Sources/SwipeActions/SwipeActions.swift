@@ -234,8 +234,18 @@ public struct SwipeAction<V1: View, V2: View>: ViewModifier {
                             visibleButton = .right(identifier)
                         }
                     }
+                    break;
+                    
                 default:
-                    break
+                    withAnimation(.default) {
+                        reset()
+                    }
+                    if offset > 0 {
+                        visibleButton = .left(identifier)
+                    } else {
+                        visibleButton = .right(identifier)
+                    }
+                    break;
                 }
             }
             .onAppear {
